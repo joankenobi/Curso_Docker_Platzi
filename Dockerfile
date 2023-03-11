@@ -17,5 +17,5 @@ COPY [".", "."]
 # Dentro del ctdr expone el puerto 3000
 EXPOSE 3000
 
-# Dentro del ctdr corre index.js con node
-CMD ["node", "index.js"]
+# Dentro del ctdr corre index.js con ndx y nodemon para actualizar en tiempo real los cambios del mismo, -L es para corregir problemas en wind10
+CMD ["npx", "nodemon", "-L", "index.js"]
