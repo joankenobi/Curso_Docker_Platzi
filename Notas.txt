@@ -1,4 +1,4 @@
 - Anotaciones en telegraph https://telegra.ph/Curso-de-Docker-03-02
 - Curso visto en marzo 2023 https://platzi.com/cursos/docker/
 - Repositorio origen https://github.com/platzi/docker
-- Repositorio dueño 
+- Repositorio dueño https://github.com/joankenobi/Curso_Docker_Platzi
