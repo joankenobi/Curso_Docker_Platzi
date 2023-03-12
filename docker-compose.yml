@@ -1,14 +1,14 @@
-version: "3.8"
+version: "3.8" # indica la version de docker, no puede se alvitraria es importante indicarla.
 
-services:
-  app:
+services: # cada servicio es un contenedor conectado en una misma network
+  app: # nombre del contenedor
     image: platziapp
     environment:
-      MONGO_URL: "mongodb://db:27017/test"
+      MONGO_URL: "mongodb://db:27017/test" # Eviroment aportado al contenedor 
     depends_on:
-      - db
+      - db # nombre del contenedor del cual depende, primero debe ejecutarse este contenedor antes de su servicio.
     ports:
-      - "3000:3000"
+      - "3021:3000" # puertos abiertos
 
-  db:
-    image: mongo
+  db: # nombre del contenedor
+    image: mongo # nombre de la imagen origen
