@@ -2,13 +2,17 @@ version: "3.8" # indica la version de docker, no puede se alvitraria es importan
 
 services: # cada servicio es un contenedor conectado en una misma network
   app: # nombre del contenedor
-    image: platziapp
+    build: . # no queremos que use una imagen sino que la cree desde el dockerfile ubicado en <.>
     environment:
       MONGO_URL: "mongodb://db:27017/test" # Eviroment aportado al contenedor 
     depends_on:
       - db # nombre del contenedor del cual depende, primero debe ejecutarse este contenedor antes de su servicio.
     ports:
       - "3021:3000" # puertos abiertos
+    volumes: # Definir los bind mounts
+      - .:/usr/src # indica que los archivos en ubicacion local actual <.> se copien a /usr/src
+      - /usr/src/node_modules # indica cuales archivos ignorar en la copia.
+    command: npx nodemon -L index.js # Permite pasarle un comando a ejecutar al servicio app. para actualizar en tiempo real.
 
   db: # nombre del contenedor
     image: mongo # nombre de la imagen origen
